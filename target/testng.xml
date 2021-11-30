@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite" >
+    <listeners>
+        <listener class-name="Extentlistner.ExtentListner"></listener>
+    </listeners>
+
+    <test verbose="2" preserve-order="true" name="C:\Users\Administrator\IdeaProjects\Productionsiteshealth\src\test\java\Dailytask">
+        <classes>
+            <class name="Dailytask.Aldos_Store"><methods><include name="AldosStoreStatus"/></methods></class>
+            <class name="Dailytask.Ananda_Store"><methods><include name="AnandaStoreStatus"/></methods></class>
+            <class name="Dailytask.Cosmos_Store"><methods><include name="CosmosStoreStatus"/></methods></class>
+            <class name="Dailytask.Countrypizza_Store"><methods><include name="CountryPizzaStoreStatus"/></methods></class>
+            <class name="Dailytask.Crowsnest_Store"><methods><include name="CrowsenestStoreStatus"/></methods></class>
+            <class name="Dailytask.Dannys_Store"><methods><include name="DannysStoreStatus"/></methods></class>
+            <class name="Dailytask.Dipasquales_Store"><methods><include name="DipasqualesStoreStatus"/></methods></class>
+            <class name="Dailytask.H2Ocean_Store"><methods><include name="H2OceanStoreStatus"/></methods></class>
+            <class name="Dailytask.Hapisgah_Store"><methods><include name="HapisgahStoreStatus"/></methods></class>
+            <class name="Dailytask.Jcbean_Store"><methods><include name="JcbeansStoreStatus"/></methods></class>
+            <class name="Dailytask.Ndasia_Store"><methods><include name="NdasiaStoreStatus"/></methods></class>
+            <class name="Dailytask.RomaPizza_Store"><methods><include name="RomaPizzaStoreStatus"/></methods></class>
+            <class name="Dailytask.Shorebreak_Store"><methods><include name="ShoreBreakStoreStatus"/></methods></class>
+            <class name="Dailytask.Shoyou_Store"><methods><include name="ShoyouStoreStatus"/></methods></class>
+            <class name="Dailytask.Ventura_Store"><methods><include name="VenturaStoreStatus"/></methods></class>
+            <class name="Dailytask.Villagebowl_Store"><methods><include name="VillageBowlStoreStatus"/></methods></class>
+            <class name="Dailytask.Wardroom_Store"><methods><include name="WardroomStoreStatus"/></methods></class>
+        </classes>
+    </test>
+
+    <test verbose="3" preserve-order="true" name="C:\Users\Administrator\IdeaProjects\Productionsiteshealth\src\test\java\EmailFireAfterSuit">
+        <classes>
+            <class name="EmailFireAferSuit.Email"><methods><include name="Send_update"/></methods></class>
+        </classes>
+    </test>
+</suite>
