@@ -1,4 +1,5 @@
 package Dailytask;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -9,15 +10,15 @@ import org.testng.annotations.Test;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class RomaPizza_Store{
+public class Bbjack_Store {
 
 
-    @Test(priority = 12)
-    public void RomaPizzaStoreStatus() throws InterruptedException {
-        // driver=initializeDriver();
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Administrator\\Documents\\GitHub\\Productionsiteshealth\\chromedriver.exe");
+    @Test(priority = 33)
+    public void BBJACKStoreStatus() throws InterruptedException {
+        //driver=initializeDriver();
+        System.setProperty("webdriver.chrome.driver","C:\\Users\\Administrator\\Documents\\GitHub\\Productionsiteshealth\\chromedriver.exe");
         WebDriver driver = new ChromeDriver();
-        driver.get("https://romapizza.orderapp.online");
+        driver.get("https://bbjack.orderapp.online/");
 
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
@@ -26,12 +27,27 @@ public class RomaPizza_Store{
         driver.findElement(By.id("btn_takeout")).click();
 
         Thread.sleep(5000);
+/*
+        JavascriptExecutor js3 = (JavascriptExecutor) driver;
+        js3.executeScript("arguments[0].scrollIntoView();", driver.findElement(By.id("orderstore10")));
+
+
+        Thread.sleep(9000);
+        driver.findElement(By.id("orderstore10")).click();
+
+
+
+        Thread.sleep(5000);
+
+
+ */
+
 
         String IndexPage = driver.getCurrentUrl();
 
         System.out.println(IndexPage);
 
-        String DesiredURL = "https://romapizza.orderapp.online/Index?OrderType=2";
+        String DesiredURL = "https://bbjack.orderapp.online/Index?OrderType=2";
 
         boolean ActualUrl = (IndexPage.replaceAll("\\s+", "").equalsIgnoreCase(DesiredURL.trim().replaceAll("\\s+", "")));
 
@@ -44,7 +60,6 @@ public class RomaPizza_Store{
 
         }
         Thread.sleep(5000);
-
         List<WebElement> timeslots = driver.findElements(By.xpath("//a[contains(@id,'modal')]"));  //Select Asap
         System.out.println(timeslots.size());
 
@@ -77,23 +92,22 @@ public class RomaPizza_Store{
         } else {
 
 
-            WebElement FirstItem = AllItemOnIndexPage.get(20);
+            WebElement FirstItem = AllItemOnIndexPage.get(5);
             ((WebElement) FirstItem).click();
 
             Thread.sleep(3000);
 
-
             List<WebElement>    AddtoCart=  driver.findElements(By.xpath("//button[contains(@onclick,'Javascript:$')]"));
 
-            AddtoCart.get(19).click();
+            AddtoCart.get(4).click();
 
-           // driver.findElement(By.xpath(" /html/body/div[2]/div[3]/div[25]/div/div/div[3]/button")).click();
+            // driver.findElement(By.xpath("/html/body/div[2]/div[3]/div[10]/div/div/div[3]/button")).click();
 
 
         }
 
-
         WebElement CheckoutButton = driver.findElement(By.xpath("//*[@id=\"tblCart\"]/tr[1]/td/a"));
+        Thread.sleep(6000);
         CheckoutButton.click();
 
 
@@ -118,7 +132,7 @@ public class RomaPizza_Store{
 
         String CheckoutPageURL = driver.getCurrentUrl();
 
-        String DesiredCheckoutPageURL = "https://romapizza.orderapp.online/Checkout";
+        String DesiredCheckoutPageURL = "https://bbjack.orderapp.online/Checkout";
 
 
         boolean CheckoutPageActualUrl = (CheckoutPageURL.replaceAll("\\s+", "").equalsIgnoreCase(DesiredCheckoutPageURL.trim().replaceAll("\\s+", "")));
@@ -139,6 +153,11 @@ public class RomaPizza_Store{
 
         Thread.sleep(5000);
 
+        // WebElement ContinueButton = driver.findElement(By.xpath("//*[@id=\"changeNo\"]"));
+
+        // ContinueButton.click();
+
+        // Thread.sleep(5000);
 
 
         WebElement StoreStatus = driver.findElement(By.xpath("/html/body/div[2]/div[3]/div[2]/div/div[2]/table/tbody/tr[1]/td/a"));
@@ -161,18 +180,19 @@ public class RomaPizza_Store{
 
         if (ActualStatus) {
 
-            System.out.println("RomaPizza Store is online: So the Test case is  PASS");
+            System.out.println("BBJACK Store is online: So the Test case is  PASS");
         } else {
 
 
-            Assert.fail(" RomaPizza Store is offline : So the test case is FAIL");
+            Assert.fail("BBJACK Store is offline : So the test case is FAIL");
 
             driver.close();
 
         }
 
-
         driver.close();
+
+
 
     }
 }

@@ -1,4 +1,5 @@
 package Dailytask;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -9,15 +10,15 @@ import org.testng.annotations.Test;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class RomaPizza_Store{
+public class Adelphia_Store {
 
 
-    @Test(priority = 12)
-    public void RomaPizzaStoreStatus() throws InterruptedException {
+    @Test(priority = 19)
+    public void AdelphiaStoreStatus() throws InterruptedException {
         // driver=initializeDriver();
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\Administrator\\Documents\\GitHub\\Productionsiteshealth\\chromedriver.exe");
         WebDriver driver = new ChromeDriver();
-        driver.get("https://romapizza.orderapp.online");
+        driver.get("https://adelphia.orderapp.online");
 
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
@@ -31,7 +32,7 @@ public class RomaPizza_Store{
 
         System.out.println(IndexPage);
 
-        String DesiredURL = "https://romapizza.orderapp.online/Index?OrderType=2";
+        String DesiredURL = "https://adelphia.orderapp.online/Index?OrderType=3";
 
         boolean ActualUrl = (IndexPage.replaceAll("\\s+", "").equalsIgnoreCase(DesiredURL.trim().replaceAll("\\s+", "")));
 
@@ -43,6 +44,7 @@ public class RomaPizza_Store{
 
 
         }
+
         Thread.sleep(5000);
 
         List<WebElement> timeslots = driver.findElements(By.xpath("//a[contains(@id,'modal')]"));  //Select Asap
@@ -51,7 +53,7 @@ public class RomaPizza_Store{
 
         if (timeslots.size() == 0) {
 
-            Assert.fail("There is no time slot available currently on index page so the test case fails ");
+            System.out.println("There is no time slot available currently on index page so the test case fails ");
 
 
             driver.close();
@@ -70,24 +72,23 @@ public class RomaPizza_Store{
 
         if (AllItemOnIndexPage.size() == 0) {
 
-            Assert.fail("There is no Menu available currently on index page so the test case fails ");
+            System.out.println("There is no Menu available currently on index page so the test case fails ");
 
             driver.close();
 
         } else {
 
 
-            WebElement FirstItem = AllItemOnIndexPage.get(20);
+            WebElement FirstItem = AllItemOnIndexPage.get(1);
             ((WebElement) FirstItem).click();
 
             Thread.sleep(3000);
 
-
             List<WebElement>    AddtoCart=  driver.findElements(By.xpath("//button[contains(@onclick,'Javascript:$')]"));
 
-            AddtoCart.get(19).click();
+            AddtoCart.get(0).click();
 
-           // driver.findElement(By.xpath(" /html/body/div[2]/div[3]/div[25]/div/div/div[3]/button")).click();
+           // driver.findElement(By.xpath("/html/body/div[2]/div[3]/div[6]/div/div/div[3]/button")).click();
 
 
         }
@@ -118,7 +119,7 @@ public class RomaPizza_Store{
 
         String CheckoutPageURL = driver.getCurrentUrl();
 
-        String DesiredCheckoutPageURL = "https://romapizza.orderapp.online/Checkout";
+        String DesiredCheckoutPageURL = "https://adelphia.orderapp.online/Checkout";
 
 
         boolean CheckoutPageActualUrl = (CheckoutPageURL.replaceAll("\\s+", "").equalsIgnoreCase(DesiredCheckoutPageURL.trim().replaceAll("\\s+", "")));
@@ -137,8 +138,8 @@ public class RomaPizza_Store{
         PhoneNumber.sendKeys("9915493895");
 
 
-        Thread.sleep(5000);
 
+        Thread.sleep(5000);
 
 
         WebElement StoreStatus = driver.findElement(By.xpath("/html/body/div[2]/div[3]/div[2]/div/div[2]/table/tbody/tr[1]/td/a"));
@@ -161,18 +162,28 @@ public class RomaPizza_Store{
 
         if (ActualStatus) {
 
-            System.out.println("RomaPizza Store is online: So the Test case is  PASS");
+            System.out.println("Adelphia Store is online: So the Test case is  PASS");
         } else {
 
 
-            Assert.fail(" RomaPizza Store is offline : So the test case is FAIL");
+            Assert.fail(" Adelphia Store is offline : So the test case is FAIL");
 
             driver.close();
 
         }
 
 
-        driver.close();
+      driver.close();
+
+        /*
+         <test verbose="3" preserve-order="true" name="C:\Users\Administrator\IdeaProjects\Productionsiteshealth\src\test\java\EmailFireAfterSuit">
+        <classes>
+            <class name="EmailFireAferSuit.Email"><methods><include name="Send_update"/></methods></class>
+        </classes>
+    </test>
+
+         */
 
     }
 }
+
